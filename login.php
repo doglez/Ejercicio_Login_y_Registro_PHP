@@ -11,6 +11,7 @@ ValidacionLogin($emailFormulario, $passFormulario);
     </p>
     <p>
         <input type="submit" value="Entrar">
-        <input type="button" onclick="window.location.href='index.php?page=recuperar_password'" value="Recuerar Contraseña">            
+        <input type="button" onclick="window.location.href='index.php?page=recuperar_password'" value="Recuerar Contraseña">  
+        <input type="button" onclick="window.location.href='index.php?page=registro'" value="Registrarse">            
     </p>
 </form>
