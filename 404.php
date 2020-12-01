@@ -1,1 +1,0 @@
-<h1>Error 404: Pagina no existe</h1>
