@@ -45,7 +45,8 @@ function SesionHabierta($email)
 {
     session_start();
     if (!isset($_SESSION['email'])) {
-        return header('Location: index.php');
+        return header('Location: identificarse.php');
+        die();
     }
 }
 
