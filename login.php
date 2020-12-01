@@ -4,7 +4,7 @@
 	if(isset($_POST['login'])){
 		$username = $_POST['username'];
 		$password = $_POST['password'];
-		echo $password;
+		// echo $password;
 		
 		$query = $connection->prepare("SELECT * FROM usuario WHERE usuario=:username");
 		$query ->bindParam(":username", $username, PDO::PARAM_STR);
@@ -19,7 +19,7 @@
 				$_SESSION['Nombre']=$result['usuario'];
 				
 
-				echo '<p class="success">Felicitaciones, Ud. se ha logueado!!!!</p>';
+				// echo '<p class="success">Felicitaciones, Ud. se ha logueado!!!!</p>';
 				header('Location: paginausuario.php');
 			}else{
 				echo '<p class="error">La combinación de usuario y password es incorrecta!!!!</p>';

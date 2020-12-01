@@ -21,8 +21,7 @@ if(isset($_POST['register'])){
 		$query ->bindParam(":username", $username);
 		$query ->bindParam(":password_hash", $password_hash);
 		$query ->bindParam(":email", $email);
-		$result = $query->execute();
-		echo $result;
+		$result = $query->execute();		
 		if($result){
 			echo '<p class="sucess">Your registration was succesfull!</p>';
 		}else{
