@@ -7,6 +7,7 @@ if(isset($_POST['register'])){
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	$password_hash = password_hash($password, PASSWORD_DEFAULT);//campo mayor a 72 chr
+	$fnac = $_POST['fnac'];
 	
 	$query = $connection->prepare("SELECT * FROM usuario WHERE email = :email");
 	$query->bindParam(":email", $email);
@@ -17,10 +18,11 @@ if(isset($_POST['register'])){
 	}
 	
 	if($query->rowCount()==0){
-		$query = $connection->prepare("INSERT INTO usuario(USUARIO,CLAVE,EMAIL) VALUES (:username, :password_hash, :email)");
+		$query = $connection->prepare("INSERT INTO usuario(USUARIO,CLAVE,EMAIL,FNAC) VALUES (:username, :password_hash, :email, :fnac)");
 		$query ->bindParam(":username", $username);
 		$query ->bindParam(":password_hash", $password_hash);
 		$query ->bindParam(":email", $email);
+		$query ->bindParam(":fnac", $fnac);
 		$result = $query->execute();		
 		if($result){
 			echo '<p class="sucess">Your registration was succesfull!</p>';
@@ -45,7 +47,11 @@ if(isset($_POST['register'])){
     <div class="form-element">
     	<label>Password</label>
         <input type="password" name="password" required />
-    </div>
+	</div>
+	<div class="form-element">
+		<label for="fnac">Fecha de nacimiento</label>
+		<input type="date" name="fnac" required>
+	</div>
     <button type="submit" name="register" value="register">Register</button>
 </form>
  
